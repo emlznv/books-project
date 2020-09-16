@@ -1,0 +1,40 @@
+<header>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="show-menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <div class="uls-wrapper">
+            <ul class="main-ul">
+                <li><a href="#/home">Home</a></li>
+                {{#if username}}
+                <li><a href="#/create">Add a Book</a></li>
+                <li><a href="#/catalogue">Catalogue</a></li>
+                  <li><a href="#/recommended">Recommended</a></li>
+                <li><a href="#/quotes">Quotes</a></li>
+                <div class="container">
+                    <li class="disabled"><a href="#">My Books</a>
+                        <ul class="dropdown">
+                            <li><a href="#/currently_reading">Currently Reading</a></li>
+                            <li><a href="#/to_read">Want to Read</a></li>
+                            <li><a href="#/favorites">Favorites</a></li>
+                        </ul>
+                    </li>
+                </div>
+                 <label for="check" class="hide-menu-btn">
+                    <i class="far fa-times-circle"></i>
+                </label>
+            </ul>
+            <ul class="secondary-ul">
+                <li><a href="#/logout">Logout</a></li>
+                <li class="welcome-user">Welcome, {{username}}!</li>
+                {{else}}
+                <li><a href="#/register">Register</a></li>
+                <li><a href="#/login">Login</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+</header>
+
+ 

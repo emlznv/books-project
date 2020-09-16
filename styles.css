@@ -1,0 +1,546 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: rgb(27, 27, 27);
+}
+
+header {
+  padding: 1em;
+  background-color: rgb(32, 32, 32);
+}
+
+.home-content {
+  background-image: url(./images/pexels-kaboompics-com-5834.jpg);
+  background-position: center 20%;
+  background-size: cover;
+  height: 100%;
+}
+
+.page-heading {
+  background-color: rgb(51, 51, 51);
+  border-bottom: 3px solid green;
+  text-align: center;
+  padding: 1em;
+  color: white;
+}
+
+/* Navigation styles */
+
+.uls-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-ul li,
+.secondary-ul li {
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    color: white;
+}
+
+.main-ul li a,
+.secondary-ul li a {
+    text-decoration: none;
+    color: orange;
+}
+
+.main-ul li a:not(:only-child):after {
+    content: "\25bc";
+}
+  
+.main-ul li a:hover,
+.secondary-ul li a:hover {
+  color: white;
+}
+
+.show-menu-btn,
+.hide-menu-btn {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+.show-menu-btn {
+  float: left;
+  color: white;
+}
+
+.hide-menu-btn {
+  color: green;
+  position: absolute;
+  top: 20px;
+  left: 255px;
+}
+
+#check {
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 1.5em;
+  min-width: 100%;
+  background-color: #eee;
+  z-index: 1;
+}
+
+.container:hover .dropdown {
+  display: block;
+}
+
+.dropdown li {
+  display: block;
+  margin: 0;
+}
+
+.dropdown li a {
+  display: block;
+  margin: 0;
+  padding: 0.5em 1.5em;
+  background-color: #eee;
+  color: rgb(54, 54, 54);
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  background-color: rgb(75, 75, 75);
+  color: rgb(255, 166, 31);
+}
+
+.container {
+  display: inline-block;
+  padding-bottom: 7px;
+}
+  
+
+@media (max-width: 820px) {
+  nav .secondary-ul .welcome-user {
+    display: none;
+  }
+
+  header {
+    padding-bottom: 40px;
+  }
+
+  .main-ul {
+    display: none;
+    border: 2px solid white;
+    margin-left: 1em;
+    background-color: rgb(53, 53, 53);
+    padding: 0 1em;
+    z-index: 1;
+  }
+
+  .secondary-ul {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+  }
+
+  .main-ul li {
+    padding: 5px;
+  }
+
+  .main-ul li,
+  .secondary-ul li,
+  .container > li {
+      font-size: 1.2em;
+      margin: 0.2em;
+      background-color: rgba(128, 128, 128, 0.014);
+  }
+
+  #check:checked ~ .uls-wrapper .main-ul{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show-menu-btn,
+  .hide-menu-btn {
+    display: block;
+  }
+
+  .dropdown {
+    display: block;
+    position: relative;
+    top: 0;
+    min-width: 100%;
+  }
+
+  .dropdown {
+    background-color: rgb(44, 43, 43);
+  }
+
+  .dropdown li {
+    font-size: 1em;
+    padding: 0;
+    
+  }
+
+  .dropdown li a {
+    background-color: transparent;
+    padding: 3px;
+    color: rgb(255, 166, 31);
+  }
+
+  .disabled {
+    pointer-events: none;
+  }
+}
+
+/* Catalogue and recommended book styles */
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
+  justify-content: center;
+  grid-gap: 10px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid green;
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+  padding: 1em 2em;
+  margin: 2em;
+}
+
+.book-img-wrapper {
+  padding-top: 15px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.book-img-wrapper img {
+  width: 220px;
+  height: 320px;
+  border-radius: 10px;
+}
+
+.book-img-wrapper:hover .book-description {
+  display: block;
+}
+
+.book-img-wrapper:hover img {
+  opacity: 0.1;
+  border: 2px solid white;
+}
+
+.book-title {
+  margin: auto;
+  font-size: 0.8em;
+  color: rgb(255, 239, 204);
+}
+
+.book-description {
+  display: none;
+  position: absolute;
+  padding: 0px 5px;
+  top: 35%;
+  left: 0;
+  right: 0;
+}
+
+.book-description h4 {
+  color: white;
+  font-weight: normal;
+}
+
+.details {
+  background-color: rgba(27, 27, 27, 0.76);
+  position: absolute;
+  bottom: 10px;
+  padding: 5px;
+  left: 0;
+  right: 0;
+}
+
+.details h4 {
+  color: white;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: rgb(255, 157, 9);
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
+button a {
+  text-decoration: none;
+  color: black;
+}
+
+.delete {
+  background-color: rgb(250, 89, 89);
+}
+
+/* Form styles */
+
+form {
+  display: grid;
+  width: fit-content;
+  margin: 2em auto;
+  padding: 1em 3em;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  border: 2px solid rgba(0, 153, 8, 0.774);
+  border-radius: 20px;
+  background-color: rgba(83, 75, 49, 0.88);
+}
+
+.quotes-container form {
+  width: fit-content;
+  background-color: transparent;
+  display: block;
+  margin: 0 auto;
+  padding: 1em;
+  border: none;
+}
+
+.recommendForm {
+  padding: 0;
+  border: none;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid white;
+}
+
+input[type="submit"],
+button {
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 5px;
+  background: #e78402;
+  color: black;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 8px 20px;
+}
+
+input[type="submit"]:hover,
+button:not(.disabled):hover {
+  background-color: rgb(27, 27, 27);
+  color: rgb(255, 157, 9);
+}
+
+button:not(.disabled):hover a {
+  color: rgb(255, 157, 9);
+}
+
+
+/* Books table styles */
+
+.books-table {
+  background-color: rgb(255, 239, 204);
+  border-collapse: collapse;
+  border: 3px solid green;
+  text-align: center;
+  padding: 2em;
+  width: 90%;
+  margin: 2em auto;
+}
+
+@media (max-width: 820px) {
+  .books-table,
+  .books-table tbody,
+  .books-table th,
+  .books-table td,
+  .books-table tr {
+    display: block;
+  }
+
+ 
+  .books-table th {
+    display: none;
+  }
+
+  .books-table .book-table-img-wrapper {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  
+  .books-table .book-table-img-wrapper img {
+    width: 100px;
+  }
+
+  .books-table {
+    padding: 1em;
+    width: 95%;
+  }
+
+  .books-table td:nth-of-type(2):before {
+    content: "Title: ";
+  }
+  .books-table td:nth-of-type(3):before {
+    content: "Author: ";
+  }
+  .books-table td:nth-of-type(4):before {
+    content: "Genre: ";
+  }
+  .books-table td:nth-of-type(5):before {
+    content: "Year: ";
+  }
+
+  .books-table tr:nth-child(even) {
+    background-color: rgba(59, 59, 59, 0.205);
+  }
+}
+
+.books-table td {
+  padding: 5px;
+}
+
+.books-table th {
+  padding: 10px;
+}
+
+.books-table tr:nth-child(odd) {
+  background-color: rgb(255, 211, 144);
+}
+
+.book-table-img-wrapper {
+  max-width: 100px;
+}
+
+.books-table img {
+  width: 40%;
+}
+
+/* Quotes styles */
+
+.quotes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 2em;
+  border-top: 3px solid green;
+}
+
+.quote {
+  flex: 0 1 45%;
+  position: relative;
+  margin: 1em;
+  background: rgb(255, 239, 204);
+  padding: 1em;
+  border-radius: 1em;
+}
+
+figcaption,
+blockquote {
+  margin: 1em;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-style: italic;
+}
+
+figcaption {
+  margin-bottom: 3em;
+}
+
+.like {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+}
+
+@media (max-width: 780px) {
+  .quotes .quote {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .quotes-container form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .quotes .quote p {
+    bottom: 0;
+    left: 0;
+    padding-left: 1em;
+  }
+}
+
+.quotes .disabled {
+  background-color: rgba(4, 131, 4, 0.308);
+  outline: none;
+}
+
+.quote p {
+  font-size: 1em;
+  font-family: serif;
+  position: absolute;
+  bottom: 20px;
+  left: 32px;
+}
+
+.quote blockquote::before {
+  font-size: 2em;
+  color: rgba(255, 157, 9, 0.418);
+  position: absolute;
+  content: "\275D";
+  top: 5px;
+  left: 10px;
+}
+
+.quote figcaption::after {
+  font-size: 2em;
+  color: rgba(255, 157, 9, 0.418);
+  position: absolute;
+  content: "\275E";
+  bottom: 0px;
+  right: 20px;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 5px;
+  background: rgb(53, 53, 53);
+  color: white;
+  font-weight: bold;
+}
+

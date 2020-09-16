@@ -1,0 +1,77 @@
+{{>header}} 
+<h2 class="page-heading">Your favorite books</h2>
+<div class="table-container">
+        <table class="books-table">
+            <tr>
+                <th>Book Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Action</th>
+            </tr>
+            {{#each favoriteBooks}}
+            <tr>
+                <td class="book-table-img-wrapper">
+                    <img src="{{image}}">
+                </td>
+                <td>{{title}}</td>
+                <td>{{author}}</td>
+                <td>{{genre}}</td>
+                <td>{{year}}</td>
+                <td>
+                    <button><a href="#/edit/{{objectId}}">Edit</a></button>
+                    <button class="delete"><a href="#/delete/{{objectId}}">Delete</a></button>
+                </td>
+            </tr>
+            {{/each}}
+         
+        </table>
+</div>
+
+{{>footer}}
+
+
+<!--
+    <div class="favorites-container">
+    <div class="books">
+        <div class="book">
+            <h2>My book</h2>
+            <div class="book-img-wrapper">
+                <div class="details">
+                    <h4>Details</h4>
+                </div>
+                <div class="book-description">
+                    <h4>author: K. Armstrong</h4>
+                    <h4>genre: YA</h4>
+                    <h4>year: 2015</h4>
+                </div>
+                <img src="images/houseofnight.jpg">
+            </div>
+            <div class="btn-group">
+                <button><a href="#/edit/">Edit</a></button>
+                <button class="delete"><a href="#/delete/">Delete</a></button>
+            </div>
+        </div>
+            <div class="book">
+            <h2>My book</h2>
+            <div class="book-img-wrapper">
+                <div class="details">
+                    <h4>Details</h4>
+                </div>
+                <div class="book-description">
+                    <h4>author: K. Armstrong</h4>
+                    <h4>genre: YA</h4>
+                    <h4>year: 2015</h4>
+                </div>
+                <img src="images/houseofnight.jpg">
+            </div>
+            <div class="btn-group">
+                <button><a href="#/edit/">Edit</a></button>
+                <button class="delete"><a href="#/delete/">Delete</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+

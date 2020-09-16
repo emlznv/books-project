@@ -1,0 +1,37 @@
+{{>header}}
+<h2 class="page-heading">All books added by users</h2>
+<div class="catalogue-container">
+    <div class="books">
+        {{#each allBooks}}
+        <div class="book">
+            <div class="book-title">
+                <h2>{{title}}</h2>
+            </div>
+            <div class="book-img-and-btn-container">
+                <div class="book-img-wrapper">
+                    <div class="details">
+                        <h4>Details</h4>
+                    </div>
+                    <div class="book-description">
+                        <h4>author: {{author}}</h4>
+                        <h4>genre: {{genre}}</h4>
+                        <h4>year: {{year}}</h4>
+                    </div>
+                    <img src="{{image}}">
+                </div>
+                <div class="btn-group">   
+                    {{#if isCreator}}
+                        <button><a href="#/edit/{{objectId}}">Edit</a></button>
+                        <button class="delete"><a href="#/delete/{{objectId}}">Delete</a></button>
+                    {{else}}
+                    <form action="#/recommend/{{objectId}}" class="recommendForm" method="POST">
+                        <button>Recommend</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{>footer}}

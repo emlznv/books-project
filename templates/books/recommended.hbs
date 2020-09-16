@@ -1,0 +1,25 @@
+{{>header}}
+<h2 class="page-heading">Users recommend these books</h2>
+<div class="catalogue-container">
+    <div class="books">
+        {{#each recommendedBooks}}
+        <div class="book">
+            <div class="book-title">
+                <h2>{{title}}</h2>
+            </div>
+            <div class="book-img-wrapper">
+                <div class="details">
+                    <h4>Details</h4>
+                </div>
+                <div class="book-description">
+                    <h4>author: {{author}}</h4>
+                    <h4>genre: {{genre}}</h4>
+                    <h4>year: {{year}}</h4>
+                </div>
+                <img src="{{image}}">
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{>footer}}

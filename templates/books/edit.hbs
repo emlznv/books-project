@@ -1,0 +1,27 @@
+{{>header}}
+<h2 class="page-heading">Edit book</h2>
+<div class="create-container">
+    <div> 
+        <form action="#/edit/{{objectId}}" method="POST">
+            <label>Title</label>
+            <input type="text" name="title" id="createTitle">
+            <label>Author</label>
+            <input type="text" name="author" id="createAuthor">
+            <label>Image URL</label>
+            <input type="text" name="image" id="createImage">
+            <label>Year</label>
+            <input type="number" name="year" id="createYear">
+            <label>Genre</label>
+            <input type="text" name="genre" id="createGenre">
+            <label>List</label>
+            <select class="options"> 
+                <option value="" disabled selected>Choose a list</option>
+                <option value="currently_reading">Currently Reading</option>
+                <option value="to_read">Want to Read</option>
+                <option value="favorites">Favorites</option>
+            </select>
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+</div>
+{{>footer}}

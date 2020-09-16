@@ -1,0 +1,37 @@
+{{>header}}
+<div class="quotes-container">
+    <form action="#/add_quote" method="POST">
+        <label>Add a quote</label>
+        <input type="text" name="quote" id="quote">
+        <label>by</label>
+        <input type="text" name="author" id="quoteAuthor">
+        <input type="submit" value="Add">
+    </form>
+    <div class="quotes">
+      {{#each quotes}}
+        <figure class="quote">
+            <blockquote>
+              {{quote}}
+            </blockquote>
+            <figcaption>
+              &mdash; {{author}}
+            </figcaption>
+           
+
+            
+                <form action="#/like/{{objectId}}" method="POST">
+                   {{#if isCreatorOfQuote}}
+                   <button type="button" class="like disabled" "disabled">Likes: {{likes}}</button>
+                   {{else}}
+                   <button class="like">Likes: {{likes}}</button>
+                   {{/if}}
+                </form>
+            
+                <p>Added by: {{creator}}</p>
+        
+        </figure>
+        {{/each}}
+    </div>
+</div>
+
+{{>footer}}
