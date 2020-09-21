@@ -155,7 +155,7 @@ export async function recommendBook(book) {
       body: JSON.stringify(book),
     })
   ).json();
-  console.log(await result);
+  
   return result;
 }
 

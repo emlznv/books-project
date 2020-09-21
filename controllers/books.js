@@ -24,6 +24,31 @@ export async function createPost() {
       list: selected,
     };
 
+    if (!book.title) {
+      console.error("Book title must be filled");
+      return;
+    } 
+    if (!book.author) {
+      console.error("Book author must be filled");
+      return;
+    }
+    if (!book.image) {
+      console.error("Book image must be filled");
+      return;
+    }
+    if (!book.year) {
+      console.error("Book year must be filled");
+      return;
+    }
+    if (!book.genre) {
+      console.error("Book genre must be filled");
+      return;
+    }
+    if (!book.list) {
+      console.error("Book list must be selected");
+      return;
+    }
+
     const result = await createBook(book);
 
     if (result.hasOwnProperty("errorData")) {
