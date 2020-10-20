@@ -1,5 +1,5 @@
 function host(endpoint) {
-  return `https://api.backendless.com/8CD006B9-3594-975C-FFB7-AE5283911100/90B92655-CE40-41A0-A4AF-E705826143D3/${endpoint}`;
+  return `https://api.backendless.com/D6C835FE-21CB-8FD5-FF19-F8D960BAA600/D31991C2-5A51-49AE-9097-77F034FC150F/${endpoint}`;
 }
 
 const endpoints = {
