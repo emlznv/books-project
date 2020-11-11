@@ -1,5 +1,5 @@
 import { create as createBook } from "../js/data.js";
-import { getAllBooks, getBookList, getRecommended, recommendBook, getBookById } from "../js/data.js";
+import { getAllBooks, getBookList, getRecommended, getRecommendedById, recommendBook, getBookById } from "../js/data.js";
 import { removeBook, editBook } from "../js/data.js";
 
 export async function create() {
@@ -127,6 +127,11 @@ export async function recommendedList() {
 export async function addToRecommended() {
   try {
     const bookById = await getBookById(this.params.id);
+    const isRecommended = await getRecommendedById(this.params.id);
+    
+    if (isRecommended) {
+      return;
+    }
 
     const book = {
       title: bookById[0].title,

@@ -191,6 +191,24 @@ export async function getAllBooks() {
   return result;
 }
 
+export async function getRecommendedById(bookId) {
+  const token = localStorage.getItem("userToken");
+
+  const result = (
+    await fetch(
+      host(endpoints.RECOMMENDED + `?where=objectId%3D%27${bookId}%27`),
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "user-token": token,
+        },
+      }
+    )
+  ).json();
+
+  return result;
+}
+
 export async function getRecommended() {
   const token = localStorage.getItem("userToken");
 
